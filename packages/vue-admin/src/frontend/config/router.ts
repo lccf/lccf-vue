@@ -1,9 +1,14 @@
-import Home from '../views/home/index.vue';
+import Layout from '@/views/public/layout/index.vue';
+import Home from '@/views/home/index.vue';
 
 export const getBasicRouter = () => [{
   name: 'home',
   path: '/',
-  component: Home,
+  component: Layout,
+  children: [{
+    path: '',
+    component: Home
+  }]
 }, {
   name: 'login',
   path: '/login',

@@ -8,7 +8,7 @@
   "author": "lccf <leftcold@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/vue-boot.js",
+  "main": "lib/common/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -20,6 +20,7 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {

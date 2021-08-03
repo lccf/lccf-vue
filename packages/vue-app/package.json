@@ -8,10 +8,9 @@
   "author": "lccf <leftcold@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/vue-app.js",
+  "main": "lib/common/index.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
@@ -20,6 +19,7 @@
     "registry": "https://registry.yarnpkg.com"
   },
   "scripts": {
+    "serve": "malagu serve",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {

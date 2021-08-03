@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "@lccf-vue/monorepo",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

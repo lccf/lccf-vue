@@ -2,10 +2,10 @@
   <div class="wscn-http404-container">
     <div class="wscn-http404">
       <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/img/404.png" alt="404">
-        <img class="pic-404__child left" src="@/assets/img/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="@/assets/img/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="@/assets/img/404_cloud.png" alt="404">
+        <div class="pic-404__parent"></div>
+        <div class="pic-404__child left" alt="404"></div>
+        <div class="pic-404__child mid" alt="404"></div>
+        <div class="pic-404__child right" alt="404"></div>
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">OOPS!</div>
@@ -51,14 +51,20 @@ export default defineComponent({
     overflow: hidden;
     &__parent {
       width: 100%;
+      height: 329px;
+      background-size: 100%;
+      background-image: url('@/assets/img/404.png');
     }
     &__child {
       position: absolute;
       &.left {
         width: 80px;
+        height: 72px;
         top: 17px;
         left: 220px;
         opacity: 0;
+        background-image: url('@/assets/img/404_cloud.png');
+        background-size: 100%;
         animation-name: cloudLeft;
         animation-duration: 2s;
         animation-timing-function: linear;
@@ -67,9 +73,12 @@ export default defineComponent({
       }
       &.mid {
         width: 46px;
+        height: 42px;
         top: 10px;
         left: 420px;
         opacity: 0;
+        background-image: url('@/assets/img/404_cloud.png');
+        background-size: 100%;
         animation-name: cloudMid;
         animation-duration: 2s;
         animation-timing-function: linear;
@@ -78,9 +87,12 @@ export default defineComponent({
       }
       &.right {
         width: 62px;
+        height: 56px;
         top: 100px;
         left: 500px;
         opacity: 0;
+        background-image: url('@/assets/img/404_cloud.png');
+        background-size: 100%;
         animation-name: cloudRight;
         animation-duration: 2s;
         animation-timing-function: linear;

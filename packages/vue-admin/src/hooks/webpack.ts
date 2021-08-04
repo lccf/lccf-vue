@@ -10,7 +10,7 @@ export default async (context: WebpackContext) => {
     const basePath = path.resolve(__dirname, '../');
     webpackConfig.resolve
       .alias
-        .set('@', basePath+'/frontend/')
+        .set('@', basePath+'/frontend')
         .set('~', basePath);
 
     let oneOfKeys = ['normal', 'normal-modules', 'vue', 'vue-modules'];

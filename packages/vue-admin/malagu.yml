@@ -1,9 +1,9 @@
 frontend:
   modules:
-    - src/frontend/module
+    - lib/frontend/module
 backend:
   modules:
-    - src/backend/module
+    - lib/backend/module
 
 malagu:
   hostDomId: 'root'

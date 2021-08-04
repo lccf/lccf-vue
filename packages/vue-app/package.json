@@ -27,6 +27,7 @@
     "@malagu/cli-service": "^1.29.0"
   },
   "dependencies": {
-    "@lccf-vue/vue-boot": "^1.0.0"
+    "@lccf-vue/vue-admin": "^1.0.0",
+    "tslib": "^2.3.0"
   }
 }

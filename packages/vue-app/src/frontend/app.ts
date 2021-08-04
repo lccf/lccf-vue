@@ -4,6 +4,7 @@ import { mergeConfig } from './config';
 import { routerConfig } from './config/router';
 import { configStore } from './store/index';
 
+import '@lccf-vue/vue-admin/lib/css/module.css';
 
 @Component(VueApplicationLifecycle)
 export class VueApplicationConfig implements VueApplicationLifecycle {

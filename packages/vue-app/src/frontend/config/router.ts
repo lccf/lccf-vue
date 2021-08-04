@@ -7,6 +7,6 @@ export const getBasicRouter = () => [{
 
 export const routerConfig = (next: any) => async (routes: any, routerOptions: any) => {
   let basicRoutes = getBasicRouter();
-  let router = await next(basicRoutes, routerOptions);
+  let router = await next(routes.slice(0).concat(basicRoutes), routerOptions);
   return router;
 }

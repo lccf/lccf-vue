@@ -8,7 +8,7 @@ module.exports = {
   mode: 'production',
   context: baseDir,
   entry: {
-    module: './src/frontend/module.ts'
+    main: './src/frontend/main.ts'
   },
   output: {
     path: baseDir+'/lib',
@@ -37,7 +37,7 @@ module.exports = {
           presets: [
             ['@babel/preset-env', { 
               "targets": {
-                "chrome": "58",
+                "chrome": "68",
               },
             }]
           ],
@@ -60,7 +60,7 @@ module.exports = {
           presets: [
             ['@babel/preset-env', { 
               "targets": {
-                "chrome": "58",
+                "chrome": "68",
               },
             }]
           ],
@@ -118,7 +118,7 @@ module.exports = {
       test: /\.(png|svg|jpg|jpeg|gif|ttf|woff)$/i,
       type: 'asset/resource',
       generator: {
-        filename: 'img/[hash][ext][query]'
+        filename: 'assets/img/[hash][ext][query]'
       }
     }, {
       test: /\.vue$/,
@@ -141,12 +141,13 @@ module.exports = {
     'tslib': 'tslib',
     '../common': '../common',
     '@lccf-vue/vue-boot': '@lccf-vue/vue-boot',
+    'element-plus':'element-plus',
     'element-plus/lib/theme-chalk/index.css':'element-plus/lib/theme-chalk/index.css'
   },
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'assets/css/index.css'
     })
   ]
 }

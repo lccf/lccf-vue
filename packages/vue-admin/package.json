@@ -25,6 +25,7 @@
   },
   "scripts": {
     "serve": "malagu serve",
+    "build": "tsc && webpack build -c ./build/webpack.config.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

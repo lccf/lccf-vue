@@ -59,11 +59,13 @@ export class VueApplicationImpl implements VueApplication {
 
   getLifecycle(key: string, init: Function = toPromise((t: any) => t)): Function {
     let lifecycles = this.lifecycles;
-    for(let lifecycle of lifecycles) {
+    let result = init;
+    for(let i=lifecycles.length; i>0; i--) {
+      let lifecycle = lifecycles[i-1];
       if (lifecycle[key])
-      init = lifecycle[key](init);
+        result = lifecycle[key](result);
     }
-    return init;
+    return result;
   }
 
   createConfig() {

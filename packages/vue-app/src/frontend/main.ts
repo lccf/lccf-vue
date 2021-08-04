@@ -7,7 +7,7 @@ import { configStore } from './store/index';
 import '@lccf-vue/vue-admin/lib/assets/css/index.css';
 
 @Component(VueApplicationLifecycle)
-export class VueApplicationConfig implements VueApplicationLifecycle {
+export class VueApplicationAppConfig implements VueApplicationLifecycle {
   @Autowired(VueApplicationContext)
   context: VueApplicationContext;
 

@@ -1,6 +1,6 @@
-frontend:
-  modules:
-    - src/frontend/module
-backend:
-  modules:
-    - src/backend/module
+# frontend:
+#   modules:
+#     - src/frontend/module
+# backend:
+#   modules:
+#     - src/backend/module

@@ -57,13 +57,17 @@ export class VueApplicationImpl implements VueApplication {
   @Autowired(ConfigContext)
   config: ConfigContext;
 
+  compose(next: Function, fn: Function, ctx: any = null) {
+    return (...args: any[]) =>  fn.apply(ctx, [next].concat(args));
+  }
+
   getLifecycle(key: string, init: Function = toPromise((t: any) => t)): Function {
     let lifecycles = this.lifecycles;
     let result = init;
     for(let i=lifecycles.length; i>0; i--) {
       let lifecycle = lifecycles[i-1];
       if (lifecycle[key])
-        result = lifecycle[key](result);
+        result = this.compose(result, lifecycle[key], lifecycle);
     }
     return result;
   }
@@ -91,6 +95,7 @@ export class VueApplicationImpl implements VueApplication {
     let afterCallback = this.getLifecycle('afterCreateApp');
     return this.createConfig()
       .then((config: any) => {
+        this.context.config = config;
         return this.createStore();
       })
       .then((store: any) => {

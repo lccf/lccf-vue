@@ -13,22 +13,20 @@ export class VueApplicationConfig implements VueApplicationLifecycle {
   @Autowired(VueApplicationContext)
   context: VueApplicationContext;
 
-  beforeCreateConfig(next: any) {
-    return mergeConfig(next);
+  beforeCreateConfig(next: any, config: any, context: any) {
+    return mergeConfig(next, config, context);
   }
 
-  beforeCreateRouter(next: any) {
-    return routerConfig(next);
+  beforeCreateRouter(next: any, routes: any, routerOptions: any) {
+    return routerConfig(next, routes, routerOptions);
   }
 
-  beforeCreateStore(next: any) {
-    return configStore(next);
+  beforeCreateStore(next: any, store: any, modules: any) {
+    return configStore(next, store, modules);
   }
 
-  afterCreateApp(next: any) {
-    return (app: any) => {
-      app.use(ElementPlus);
-      return next(app);
-    }
-  }
+  afterCreateApp(next: any, app: any) {
+    app.use(ElementPlus);
+    return next(app);
+}
 }

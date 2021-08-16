@@ -19,7 +19,7 @@ export const getBasicRouter = () => [{
   component: () => import('@/views/public/404.vue')
 }];
 
-export const routerConfig = (next: any) => async (routes: any, routerOptions: any) => {
+export const routerConfig = async (next: any, routes: any, routerOptions: any) => {
   let basicRoutes = getBasicRouter();
   let router = await next(basicRoutes, routerOptions);
   return router;

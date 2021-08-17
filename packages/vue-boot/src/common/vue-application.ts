@@ -7,6 +7,9 @@ export interface VueApplication {
 export const VueApplicationLifecycle = Symbol('VueApplicationLifecycle');
 
 export interface VueApplicationLifecycle {
+  beforeCreateConfig?: (next: Function, config: any, context: any) => any;
+  afterCreateConfig?: (next: Function, config: any) => any;
+
   beforeCreateApp?: (next: Function, component: any, options: any) => any;
   afterCreateApp?: (next: Function, appComponent: any) => any;
 

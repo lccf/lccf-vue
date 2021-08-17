@@ -28,5 +28,5 @@ export class VueApplicationConfig implements VueApplicationLifecycle {
   afterCreateApp(next: any, app: any) {
     app.use(ElementPlus);
     return next(app);
-}
+  }
 }

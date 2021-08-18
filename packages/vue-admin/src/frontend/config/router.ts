@@ -1,5 +1,10 @@
+import { Constant } from '@malagu/core';
+import { CustomLayout } from '~/common';
 import Layout from '@/views/public/layout/index.vue';
 import Home from '@/views/home/index.vue';
+
+@Constant(CustomLayout, Layout)
+export class CustomLayoutImpl {}
 
 export const getBasicRouter = () => [{
   name: 'home',

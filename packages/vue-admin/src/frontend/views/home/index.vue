@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <h2>{{ title }}</h2>
     <p>login url: {{ loginUrl }}</p>
     <el-button type="primary" @click="showLoginUrl">show login url</el-button>

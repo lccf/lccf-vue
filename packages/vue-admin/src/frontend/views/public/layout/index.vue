@@ -28,7 +28,7 @@ export default defineComponent({
       fixedHeader: (state: any): boolean => state.fixedHeader
     }),
     classObj() {
-      let _self = <any>this;
+      let _self = this as any;
       return {
         hideSidebar: !_self.sidebar.opened,
         openSidebar: _self.sidebar.opened,
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   methods: {
     handleClickOutside() {
-      let _self = <any>this;
+      let _self = this as any;
       _self.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }

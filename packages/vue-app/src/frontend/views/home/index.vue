@@ -1,7 +1,8 @@
 <template>
   <div class="el-main">
     <h2>{{ title }}</h2>
-    
+    <p>{{ a }}</p>
+    <button @click="increment">increment</button>
     <p>框架公共页面：</p>
     <ul>
       <li>
@@ -26,6 +27,7 @@ import { ContainerUtil } from '@malagu/core';
 import { ConfigContext } from '@lccf-vue/vue-boot';
 import { defineComponent, computed, ref } from 'vue';
 import { useStore } from 'vuex';
+import { getVueSetup, HomeButton } from './home-button';
 
 export default defineComponent({
   data() {
@@ -40,10 +42,15 @@ export default defineComponent({
       let url = config.get<string>('pageUrl.user.login');
       loginUrl.value = url;
     }
+    let homeButton = getVueSetup<HomeButton>(HomeButton);
+    for(let key in homeButton) {
+      console.log(key);
+    }
     return {
       title: computed(() => store.state.title),
       loginUrl,
-      showLoginUrl
+      showLoginUrl,
+      ...homeButton
     }
   },
 })

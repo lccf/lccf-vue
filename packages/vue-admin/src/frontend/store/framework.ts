@@ -1,4 +1,4 @@
-import { ConfigContext } from '@lccf-vue/vue-boot/lib/common';
+import { ConfigContext } from '@lccf-vue/vue-boot';
 import { ContainerUtil } from '@malagu/core';
 import { Cookie as Cookies } from '@/common/utils/cookie';
 export type FrameworkState = {

@@ -108,7 +108,6 @@ module.exports = {
       }]
     }, {
       test: /\.css$/,
-      exclude: /node_modules/,
       use: [{
         loader: MiniCssExtractPlugin.loader
       }, {
@@ -139,7 +138,7 @@ module.exports = {
     'vuex': 'vuex',
     'vue-router': 'vue-router',
     'tslib': 'tslib',
-    '../common': '../common',
+    '~/common': '~/common',
     '@lccf-vue/vue-boot': '@lccf-vue/vue-boot',
     'element-plus':'element-plus',
     'element-plus/lib/theme-chalk/index.css':'element-plus/lib/theme-chalk/index.css'

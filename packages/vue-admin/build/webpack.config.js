@@ -52,7 +52,7 @@ module.exports = {
         }
       }]
     }, {
-      test: /\.tsx?$/,
+      test: /\.tsx$/,
       exclude: /(node_modules|bower_components)/,
       use: [{
         loader: 'babel-loader',

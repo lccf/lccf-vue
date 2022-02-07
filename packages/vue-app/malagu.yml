@@ -1,9 +1,1 @@
-frontend:
-  modules:
-    - src/frontend/module
-backend:
-  modules:
-    - src/backend/module
 
-malagu:
-  hostDomId: 'root'

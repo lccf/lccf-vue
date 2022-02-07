@@ -1,0 +1,6 @@
+targets:
+  - frontend
+
+frontend:
+  modules:
+    - src/frontend/module

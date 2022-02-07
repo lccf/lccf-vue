@@ -1,6 +1,6 @@
 {
   "name": "@lccf-vue/vue-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "vue app",
   "keywords": [
     "malagu-component"
@@ -15,20 +15,16 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "scripts": {
+    "dev": "malagu serve",
     "serve": "malagu serve",
-    "build": "malagu build",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "malagu build"
   },
   "dependencies": {
-    "@lccf-vue/vue-admin": "^1.0.1",
-    "@lccf-vue/vue-shared": "~1.0.0"
+    "@lccf-vue/vue-admin": "~1.1.0",
+    "@lccf-vue/vue-boot": "~1.1.0"
   },
   "devDependencies": {
-    "@malagu/cli": "^1.34.1",
-    "@malagu/cli-service": "^1.34.1"
+    "@malagu/cli-service": "~2.9.0"
   }
 }

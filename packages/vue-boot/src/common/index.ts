@@ -1,3 +1,4 @@
+export * from '@malagu/core';
 export * from './vue-application';
 export * from './vue-application-context';
 export * from './config-context';

@@ -1,6 +1,3 @@
 frontend:
   modules:
     - lib/frontend/module
-backend:
-  modules:
-    - lib/backend/module

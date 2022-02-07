@@ -1,6 +1,6 @@
 {
   "name": "@lccf-vue/vue-boot",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "vue boot",
   "keywords": [
     "malagu-component"
@@ -17,16 +17,16 @@
     "src",
     "malagu.yml"
   ],
-  "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
-  },
   "scripts": {
+    "dev": "malagu serve",
     "serve": "malagu serve",
-    "build": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc"
   },
   "dependencies": {
-    "@lccf-vue/vue-shared": "~1.0.0",
-    "ts-loader": "9.1.2"
+    "@lccf-vue/vue-shared": "~1.1.0"
+  },
+  "devDependencies": {
+    "@malagu/cli": "~2.9.0",
+    "@malagu/cli-service": "~2.9.0"
   }
 }

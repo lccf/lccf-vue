@@ -7,4 +7,4 @@ export default defineComponent({
       h(RouterView)
     ])
   }
-})
+});

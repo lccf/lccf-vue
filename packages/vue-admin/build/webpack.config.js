@@ -81,7 +81,7 @@ module.exports = {
       use: [{
         loader: MiniCssExtractPlugin.loader,
         options: {
-          filename: 'frontend/css/[name][ext]'
+          publicPath: '../../',
         }
       }, {
         loader: "css-loader"
@@ -96,7 +96,10 @@ module.exports = {
       test: /\.(?:sc)ss$/,
       exclude: /node_modules/,
       use: [{
-        loader: MiniCssExtractPlugin.loader
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../../',
+        }
       }, {
         loader: "css-loader"
       },{
@@ -109,7 +112,10 @@ module.exports = {
     }, {
       test: /\.css$/,
       use: [{
-        loader: MiniCssExtractPlugin.loader
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../../',
+        }
       }, {
         loader: "css-loader"
       }]

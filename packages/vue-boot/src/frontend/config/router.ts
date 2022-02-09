@@ -9,7 +9,7 @@ export const routerOptions = {
   history: createWebHashHistory()
 };
 
-export const createRouter = (router: any[], cfg: any) => VueCreateRouter({
+export const createRouter = (router: any[], options: any) => VueCreateRouter({
   routes: router,
-  ...cfg,
+  ...options,
 });

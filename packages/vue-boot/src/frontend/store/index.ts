@@ -6,7 +6,7 @@ export const store = {
 
 export const modules = {};
 
-export const createStore = (store: any, modules: any) => VueCreateStore({
+export const createStore = (store: any, modules: any, options: any) => VueCreateStore({
   ...store,
   state() {
     return store.state || {};

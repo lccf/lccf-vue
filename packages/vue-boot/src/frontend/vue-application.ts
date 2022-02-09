@@ -81,7 +81,7 @@ export class VueApplicationImpl implements VueApplication {
   createStore() {
     let beforeCallback = this.getLifecycle('beforeCreateStore', toPromise(createStore));
     let afterCallback = this.getLifecycle('afterCreateStore');
-    return beforeCallback(store, modules).then(afterCallback);
+    return beforeCallback(store, modules, {}).then(afterCallback);
   }
 
   createRouter() {

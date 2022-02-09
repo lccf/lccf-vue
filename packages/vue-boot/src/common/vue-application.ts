@@ -16,6 +16,6 @@ export interface VueApplicationLifecycle {
   beforeCreateRouter?: (next: Function, routes: any, options: any) => any;
   afterCreateRouter?: (next: Function, storeContext: any) => any;
 
-  beforeCreateStore?: (next: Function, stores: any, modules: any) => any;
+  beforeCreateStore?: (next: Function, stores: any, modules: any, options: any) => any;
   afterCreateStore?: (next: Function, storeContext: any) => any;
 }

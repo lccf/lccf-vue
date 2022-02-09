@@ -4,8 +4,9 @@ import { mergeConfig } from './config';
 import { routerConfig } from './config/router';
 import { configStore } from './store/index';
 
-import ElementPlus from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
+import ElementPlus from 'element-plus'
+import *　as ElementPlusIcons from '@element-plus/icons-vue';
+import 'element-plus/dist/index.css'
 import '@/styles/index.scss';
 
 @Component(VueApplicationLifecycle)
@@ -27,6 +28,10 @@ export class VueApplicationConfig implements VueApplicationLifecycle {
 
   afterCreateApp(next: any, app: any) {
     app.use(ElementPlus);
+    let icons = Object.keys(ElementPlusIcons);
+    for(let icon of icons) {
+      app.component(`${icon.toLowerCase()}-icon`, (ElementPlusIcons as any)[icon]);
+    }
     return next(app);
   }
 }

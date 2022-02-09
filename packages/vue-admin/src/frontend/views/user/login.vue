@@ -11,7 +11,7 @@
               
         <span class="svg-container">
           <el-icon size="size">
-            <user />
+            <user-icon />
           </el-icon>
           <!-- <svg-icon icon-class="user" /> -->
         </span>
@@ -29,7 +29,7 @@
       <el-form-item prop="password">
         <span class="svg-container">
           <el-icon size="mini">
-            <lock />
+            <lock-icon />
           </el-icon>
           <!-- <svg-icon icon-class="password" /> -->
         </span>
@@ -47,8 +47,8 @@
         />
         <span class="show-pwd" @click="showPwd">
           <el-icon size="mini">
-            <sunrise v-if="passwordType === 'password'"/>
-            <sunny v-else/>
+            <sunrise-icon v-if="passwordType === 'password'"/>
+            <sunny-icon v-else/>
           </el-icon>
           <!-- <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" /> -->
         </span>
@@ -67,12 +67,10 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { User, Lock, Sunrise, Sunny } from '@element-plus/icons';
 // import { validUsername } from '@/utils/validate'
 
 export default defineComponent({
   name: 'Login',
-  components: { User, Lock, Sunrise, Sunny },
   data() {
     const validateUsername = (rule, value, callback) => {
       // if (!validUsername(value)) {

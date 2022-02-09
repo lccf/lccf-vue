@@ -38,13 +38,11 @@
 
 <script>
 import { mapState } from 'vuex';
-import { Fold } from '@element-plus/icons';
 import Breadcrumb from '@/common/components/Breadcrumb/index.vue';
 
 export default {
   components: {
     Breadcrumb,
-    FoldIcon: Fold
   },
   computed: {
     ...mapState({

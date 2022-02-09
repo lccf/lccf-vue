@@ -36,8 +36,9 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "~0.2.7",
     "@lccf-vue/vue-boot": "~1.1.0",
     "axios": "^0.25.0",
-    "element-plus": "1.0.2-beta.71"
+    "element-plus": "~2.0.0"
   }
 }

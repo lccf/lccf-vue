@@ -136,19 +136,41 @@ module.exports = {
   optimization: {
     minimize: false,
   },
-  externals: {
+  externals: [{
+    'tslib': 'tslib',
     'reflect-metadata': 'reflect-metadata',
     '@malagu/core': '@malagu/core',
     '@malagu/vue': '@malagu/vue',
     'vue': 'vue',
     'vuex': 'vuex',
     'vue-router': 'vue-router',
-    'tslib': 'tslib',
     '~/common': '~/common',
     '@lccf-vue/vue-boot': '@lccf-vue/vue-boot',
     'element-plus':'element-plus',
-    'element-plus/lib/theme-chalk/index.css':'element-plus/lib/theme-chalk/index.css'
-  },
+    'element-plus/dist/index.css':'element-plus/dist/index.css',
+    '@element-plus/icons-vue': '@element-plus/icons-vue'
+  }, function({ context, request }, callback) {
+    let fullPath = '';
+    let firstChar = request.charAt(0);
+    if (firstChar === '.') {
+      fullPath = path.resolve(context, request).replace(baseDir, '');
+      let skip = false;
+      if (/services|store/.test(fullPath)) {
+        skip = true;
+      }
+      else if (/config$/.test(fullPath)) {
+        skip = true;
+      }
+      if (skip) {
+        console.log(`[skip]: ${fullPath}`);
+        return callback(null, 'commonjs '+request);
+      }
+    }
+    if(firstChar !== '-') {
+      console.log(`[include]: ${fullPath || request}`);
+    }
+    return callback();
+  }],
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({

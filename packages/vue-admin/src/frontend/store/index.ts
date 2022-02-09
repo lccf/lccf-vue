@@ -1,10 +1,17 @@
-import { getFrameworkModule } from './framework';
+import { app } from './app'
 import { user } from './user'
-export const configStore = (next: any, store: any, modules: any) => {
+import {　getSettingsModule } from './settings'
+import { getters } from './getter';
+
+export const configStore = (next: any, store: any, modules: any, options: any) => {
   let state = { 
     ...store.state,
     title: 'vue admin'
-  };
-  let framework = getFrameworkModule();
-  return next({ ...store, state }, { ...modules, framework, user } );
+  }
+  let settings = getSettingsModule();
+  return next(
+    { ...store, state },
+    { ...modules, app, user, settings },
+    { ...options, getters }
+  )
 }

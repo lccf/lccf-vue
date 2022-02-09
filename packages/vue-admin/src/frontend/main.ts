@@ -22,8 +22,8 @@ export class VueApplicationConfig implements VueApplicationLifecycle {
     return routerConfig(next, routes, routerOptions);
   }
 
-  beforeCreateStore(next: any, store: any, modules: any) {
-    return configStore(next, store, modules);
+  beforeCreateStore(next: any, store: any, modules: any, options: any) {
+    return configStore(next, store, modules, options);
   }
 
   afterCreateApp(next: any, app: any) {

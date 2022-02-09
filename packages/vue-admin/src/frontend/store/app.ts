@@ -1,10 +1,6 @@
-import { ConfigContext } from '@lccf-vue/vue-boot';
-import { ContainerUtil } from '@malagu/core';
 import { Cookie as Cookies } from '@/common/utils/cookie';
-export type FrameworkState = {
-  showSettings: string,
-  fixedHeader: boolean,
-  sidebarLogo: boolean,
+
+export type AppState = {
   sidebar: {
     opened: boolean,
     withoutAnimation: boolean,
@@ -13,13 +9,9 @@ export type FrameworkState = {
   routes: any[],
   addRoutes: any[]
 }
-const framework = {
+export const app = {
   namespaced: true,
   state: {
-    // settings
-    showSettings: '',
-    fixedHeader: false,
-    sidebarLogo: false,
     // app
     sidebar: {
       opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
@@ -31,13 +23,7 @@ const framework = {
     addRoutes: []
   },
   mutations: {
-    CHANGE_SETTING: (state: any, { key, value } : any) => {
-      // eslint-disable-next-line no-prototype-builtins
-      if (state.hasOwnProperty(key)) {
-        state[key] = value
-      }
-    },
-    TOGGLE_SIDEBAR: (state: FrameworkState) => {
+    TOGGLE_SIDEBAR: (state: AppState) => {
       state.sidebar.opened = !state.sidebar.opened
       state.sidebar.withoutAnimation = false
       if (state.sidebar.opened) {
@@ -46,23 +32,20 @@ const framework = {
         Cookies.set('sidebarStatus', 0)
       }
     },
-    CLOSE_SIDEBAR: (state: FrameworkState, withoutAnimation: boolean) => {
+    CLOSE_SIDEBAR: (state: AppState, withoutAnimation: boolean) => {
       Cookies.set('sidebarStatus', 0)
       state.sidebar.opened = false
       state.sidebar.withoutAnimation = withoutAnimation
     },
-    TOGGLE_DEVICE: (state: FrameworkState, device: string) => {
+    TOGGLE_DEVICE: (state: AppState, device: string) => {
       state.device = device
     },
-    SET_ROUTES: (state: FrameworkState, routes: any) => {
+    SET_ROUTES: (state: AppState, routes: any) => {
       // state.addRoutes = routes
       // state.routes = constantRoutes.concat(routes)
     }
   },
   actions: {
-    changeSetting({ commit }: any, data: any) {
-      commit('CHANGE_SETTING', data)
-    },
     toggleSideBar({ commit }: any) {
       commit('TOGGLE_SIDEBAR')
     },
@@ -76,18 +59,4 @@ const framework = {
       
     }
   }
-}
-
-export const getFrameworkModule = () => {
-  const config = ContainerUtil.get<ConfigContext>(ConfigContext);
-  let showSettings = config.get<string>('showSettings');
-  let fixedHeader = config.get<boolean>('fixedHeader');
-  let sidebarLogo = config.get<boolean>('sidebarLogo');
-  framework.state = {
-    ...framework.state,
-    showSettings,
-    fixedHeader,
-    sidebarLogo
-  }
-  return framework;
 }

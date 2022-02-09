@@ -46,8 +46,8 @@ export default {
   },
   computed: {
     ...mapState({
-      permission_routes: (state) => state.framework.routes,
-      sidebar: (state) => state.framework.sidebar,
+      permission_routes: (state) => state.app.routes,
+      sidebar: (state) => state.app.sidebar,
     }),
     activeMenu() {
       const route = this.$route
@@ -59,7 +59,7 @@ export default {
       return path
     },
     showLogo() {
-      return this.$store.state.framework.sidebarLogo
+      return this.$store.state.settings.sidebarLogo
     },
     variables() {
       return variables

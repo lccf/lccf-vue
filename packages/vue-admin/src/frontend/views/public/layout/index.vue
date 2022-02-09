@@ -22,10 +22,10 @@ export default defineComponent({
   components: { AppMain, Sidebar, Navbar },
   mixins: [ LayoutMixin ],
   computed: { 
-    ...mapState('framework', {
-      sidebar: (state: any): any => state.sidebar,
-      device: (state: any): string => state.device,
-      fixedHeader: (state: any): boolean => state.fixedHeader
+    ...mapState({
+      sidebar: (state: any): any => state.app.sidebar,
+      device: (state: any): string => state.app.device,
+      fixedHeader: (state: any): boolean => state.settings.fixedHeader
     }),
     classObj() {
       let _self = <any>this;
@@ -47,8 +47,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 @import "~@/styles/mixin.scss";
-@import "~@/styles/variables.scss";
-
 .app-wrapper {
   @include clearfix;
   position: relative;

@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="hamburger-container" @toggleClick="toggleSideBar">
+    <div class="hamburger-container" @click="toggleSideBar">
       <el-icon :class="{'is-active':sidebar.opened}" class="hamburger" size="20">
         <fold-icon/>
       </el-icon>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import Breadcrumb from '@/common/components/Breadcrumb/index.vue';
 
 export default {
@@ -45,14 +45,14 @@ export default {
     Breadcrumb,
   },
   computed: {
-    ...mapState({
-      sidebar: (state) => state.framework.sidebar,
-      avatar: (state) => state.user.avatar
-    })
+    ...mapGetters([
+      'sidebar',
+      'avatar'
+    ])
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('framework/toggleSideBar')
+      this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
       await this.$store.dispatch('user/logout')
